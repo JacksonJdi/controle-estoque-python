@@ -1,9 +1,6 @@
-from estoque import cadastrar,listar,remover_produto,atualizar_qtd_produto,salvar_arquivo,carregar_arquivo, gerar_id,atualizar_preco_produto, buscar_produto
+from crud import cadastrar,listar,remover_produto,atualizar_qtd_produto,atualizar_preco_produto, buscar_produto
 
-try:
-    produtos = carregar_arquivo()
-except:
-    produtos = []
+
 def menu():
     while True:
         print("------CONTROLE DE ESTOQUE------")
@@ -18,33 +15,29 @@ def menu():
         opcao = input("ESCOLHA UMA OPCAO: ")
                 
         if opcao == "1":
-            cadastrar(produtos)
-            salvar_arquivo(produtos)
+            cadastrar()
             
         elif opcao == "2":
-            listar(produtos)
+            listar()
             
         elif opcao == "3":
             print("Quantidade atualizada")
-            atualizar_qtd_produto(produtos)
-            salvar_arquivo(produtos)
+            atualizar_qtd_produto()
 
         elif opcao == "4":
             print("Preço atualizado")
-            atualizar_preco_produto(produtos)
-            salvar_arquivo(produtos)
+            atualizar_preco_produto()
         
         elif opcao == "5":
             print("Buscando produto")
-            buscar_produto(produtos)
+            buscar_produto()
             
         elif opcao == "6":
-            remover_produto(produtos)  
-            salvar_arquivo(produtos)
+            remover_produto()  
+
         
         elif opcao == "7":
             print("SAINDO DO MENU")  
-            salvar_arquivo(produtos)
                 
         else:
             print("OPÇAO INVALIDA")
