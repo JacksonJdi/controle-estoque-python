@@ -1,70 +1,156 @@
-# controle-estoque-python
-Sistema de controle de estoque em Python utilizando JSON.
-# Sistema de Controle de Estoque
+# 📦 Sistema de Controle de Estoque
 
-Projeto desenvolvido em Python para praticar os conceitos fundamentais da linguagem.
+Um sistema de controle de estoque desenvolvido em **Python** com **MySQL**, utilizando operações CRUD (Create, Read, Update e Delete).
 
-## Funcionalidades
+Este projeto foi desenvolvido com o objetivo de praticar conceitos de programação em Python, manipulação de banco de dados e organização de código em módulos.
 
-- Cadastro de produtos
-- Listagem de produtos
-- Busca por ID
-- Atualização de quantidade
-- Atualização de preço
-- Remoção de produtos
-- Geração automática de ID
-- Persistência dos dados em JSON
-- Tratamento de erros de entrada
+---
 
-## Tecnologias
+## 🚀 Tecnologias utilizadas
 
 - Python 3
-- JSON
+- MySQL
+- MySQL Connector for Python
+- Git
+- GitHub
 
-## Como executar
+---
 
-Clone o repositório:
+## 📂 Estrutura do projeto
 
-```bash
-git clone https://github.com/SEU_USUARIO/controle-estoque-python.git
+```
+CADASTRO/
+│
+├── crud.py          # Operações do sistema (CRUD)
+├── database.py      # Conexão com o banco de dados
+├── main.py          # Menu principal da aplicação
+├── README.md
+└── .gitignore
 ```
 
-Entre na pasta:
+---
+
+## ⚙️ Funcionalidades
+
+- ✅ Cadastrar produtos
+- ✅ Listar todos os produtos
+- ✅ Buscar produto por ID
+- ✅ Atualizar quantidade
+- ✅ Atualizar preço
+- ✅ Remover produtos
+- ✅ Validação de entradas do usuário
+- ✅ Tratamento básico de exceções
+
+---
+
+## 🗄️ Banco de Dados
+
+Tabela utilizada:
+
+```sql
+CREATE TABLE produtos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    quantidade INT NOT NULL,
+    preco DECIMAL(10,2) NOT NULL
+);
+```
+
+---
+
+## ▶️ Como executar
+
+### 1. Clone o repositório
+
+```bash
+git clone https://github.com/JacksonJdi/controle-estoque-python.git
+```
+
+---
+
+### 2. Entre na pasta
 
 ```bash
 cd controle-estoque-python
 ```
 
-Execute:
+---
+
+### 3. Instale a dependência
+
+```bash
+pip install mysql-connector-python
+```
+
+---
+
+### 4. Configure o banco
+
+Edite o arquivo `database.py` com suas credenciais do MySQL.
+
+Exemplo:
+
+```python
+host="localhost"
+user="root"
+password="SUA_SENHA"
+database="estoque"
+```
+
+---
+
+### 5. Execute o projeto
 
 ```bash
 python main.py
 ```
 
-## Estrutura
+---
 
-```
-main.py
-estoque.py
-dados.json
-```
+## 📚 Conceitos praticados
 
-## Objetivo
-
-Este projeto foi desenvolvido para praticar:
-
+- Organização de projetos Python
 - Funções
-- Listas
-- Dicionários
-- Laços de repetição
-- Estruturas condicionais
+- Estruturas de repetição
 - Tratamento de exceções
-- Manipulação de arquivos JSON
-- Organização em módulos
+- Modularização
+- MySQL
+- CRUD
+- SQL parametrizado
+- Conexão entre Python e MySQL
 
-## Melhorias futuras
+---
 
-- Banco de dados SQLite
-- Interface gráfica
-- API REST
-- Testes automatizados
+## 🔒 Segurança
+
+O projeto utiliza consultas parametrizadas (`%s`) para evitar SQL Injection.
+
+Exemplo:
+
+```python
+cursor.execute(
+    "SELECT * FROM produtos WHERE id = %s",
+    (produto_id,)
+)
+```
+
+---
+
+## 🎯 Próximos passos
+
+Este projeto será evoluído para uma aplicação web utilizando:
+
+- Flask
+- HTML
+- CSS
+- Bootstrap
+- Jinja2
+- Sistema de Login
+- Interface Web
+- Dashboard
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido por **Jackson Silva** como projeto de estudos em Python e MySQL.
