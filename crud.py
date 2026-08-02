@@ -115,11 +115,12 @@ def atualizar_preco_produto():
        cursor.execute("UPDATE produtos SET preco = %s WHERE id = %s",
                       (user_atualiza_preco, user_atualiza_preco_id)
        )
-       print("PRODUTO ATUALIZADO COM SUCESSO")
+       
        conexao.commit()
        if cursor.rowcount == 0:
            print("PRODUTO NAO ATUALIZADO")
            return
+       print("PRODUTO ATUALIZADO COM SUCESSO")
         
     except Exception as e:    
         print("ERRO AO ATUALIZAR O PRECO")
@@ -135,12 +136,13 @@ def buscar_produto():
         print("ID INVALIDO") 
         return
     try:
+
+        cursor.execute("SELECT * FROM produtos WHERE id = %s",
+                   (user_busca_id,))
         produto = cursor.fetchone()
         if produto is None:
             print("PRODUTO NAO ENCONTRADO")
             return
-        cursor.execute("SELECT * FROM produtos WHERE id = %s",
-                   (user_busca_id,))
         
         print(f"""
             ID: {produto[0]}
